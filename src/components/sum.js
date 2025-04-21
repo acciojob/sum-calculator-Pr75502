@@ -20,7 +20,7 @@ function SumCalculator() {
    
     return (
         <div>
-            <h2>Sum Calculator</h2>
+            <h1>Sum Calculator</h1>
             <input
                 type="number"
                 value={currentNumber}
@@ -28,7 +28,7 @@ function SumCalculator() {
                 placeholder="Enter a number"
             />
             <button onClick={handleAddNumber}>Add Number</button>
-            <h1>Sum: {totalSum}</h1>
+            <p>Sum: {totalSum}</p>
         </div>
     );
 }
