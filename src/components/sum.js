@@ -22,13 +22,13 @@ function SumCalculator() {
         <div>
             <h2>Sum Calculator</h2>
             <input
-                type="text"
+                type="number"
                 value={currentNumber}
                 onChange={handleInputChange}
                 placeholder="Enter a number"
             />
             <button onClick={handleAddNumber}>Add Number</button>
-            <p>Current Total Sum: {totalSum}</p>
+            <h1>Sum: {totalSum}</h1>
         </div>
     );
 }
