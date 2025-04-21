@@ -5,17 +5,19 @@ function SumCalculator() {
     const [numbers, setNumbers] = useState([]); 
     const [currentNumber, setCurrentNumber] = useState("");
     const [totalSum, setTotalSum] = useState(0); 
-    const handleInputChange = (e) => {
-    setCurrentNumber(e.target.value);
-    }
-    const handleAddNumber = () => {setNumbers([...numbers, parseFloat(currentNumber)]);
-    setCurrentNumber("");
-    }
-
     useEffect(() => {
         const sum = numbers.reduce((acc, num) => acc + num, 0);
         setTotalSum(sum);
     }, [numbers]);
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setCurrentNumber(value);
+
+        if (!isNaN(parseFloat(value))) {
+            setNumbers(prev => [...prev, parseFloat(value)]);
+        }
+    }
 
    
     return (
@@ -24,10 +26,10 @@ function SumCalculator() {
             <input
                 type="number"
                 value={currentNumber}
-                onChange={handleInputChange}
+               onChange={handleInputChange}
                 placeholder="Enter a number"
             />
-            <button onClick={handleAddNumber}>Add Number</button>
+           
             <p>Sum: {totalSum}</p>
         </div>
     );
